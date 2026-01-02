@@ -1,5 +1,5 @@
 package src.service;
-import src.domain.Student;
+import  src.domain.Student;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
@@ -57,5 +57,13 @@ public class StudentService{
     public List<Student> studentQueryAll() {
         return new ArrayList<>(studentsList);
     }
-
+    public List<Student> studentQueryByMajor(String major) {
+        List<Student> result = new ArrayList<>();
+        for (Student s : studentsList) {
+            if (s.getMajor().equals(major)) {
+                result.add(s);
+            }
+        }
+        return result;
+    }
 }
