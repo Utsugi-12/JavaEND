@@ -6,6 +6,21 @@ import java.util.List;
 public class StudentService{
     private static List<Student> studentsList = new ArrayList<>();
 
+    // 初始化测试数据的方法
+    public static void initTestData() {
+        // 添加一些测试学生数据
+        addStudentStatic("001", "张三", "男", "北京", "计算机科学", "信息学院", LocalDate.of(2020, 9, 1));
+        addStudentStatic("002", "李四", "女", "上海", "软件工程", "信息学院", LocalDate.of(2020, 9, 1));
+        addStudentStatic("003", "王五", "男", "广东", "数学", "理学院", LocalDate.of(2020, 9, 1));
+        addStudentStatic("004", "赵六", "女", "江苏", "物理学", "理学院", LocalDate.of(2020, 9, 1));
+    }
+
+    // 用于初始化数据的辅助方法（不检查重复性，因为是初始化）
+    private static void addStudentStatic(String studentId, String name, String sex, String source, String major, String academy, LocalDate enrollmentDate) {
+        studentsList.add(new Student(studentId, name, sex, source, major, academy, enrollmentDate));
+        System.out.println("初始化学生数据: " + name);
+    }
+
     public void   addStudent(String studentId, String name, String sex, String source, String major, String academy, LocalDate enrollmentDate){
       for(Student s:studentsList){
           if(s.getStudentId().equals(studentId)){

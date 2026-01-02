@@ -1,4 +1,4 @@
-package src.controller;
+package controller;
 
 import java.util.Scanner;
 
@@ -110,7 +110,7 @@ public class ShowMenu {
         }
         
         // 初始化一些测试数据
-        src.service.StudentService.initTestData();
+        service.StudentService.initTestData();
         
         // 进入主菜单循环
         while (true) {
