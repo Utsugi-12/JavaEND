@@ -1,5 +1,5 @@
-package src.service;
-import  src.domain.Course;
+package service;
+import  domain.Course;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;

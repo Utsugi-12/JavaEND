@@ -1,6 +1,6 @@
-package src.controller;
-import src.service.StudentService;
-import src.domain.Student;
+package controller;
+import service.StudentService;
+import domain.Student;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.List;
