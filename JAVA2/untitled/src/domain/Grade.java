@@ -1,4 +1,4 @@
-package src.domain;
+package domain;
 public class Grade {
     private String courseId;
     private String studentId;

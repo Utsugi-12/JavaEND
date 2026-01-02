@@ -1,6 +1,6 @@
-package src.service;
-import  src.domain.Course;
-import  src.domain.Grade;
+package service;
+import  domain.Course;
+import domain.Grade;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
