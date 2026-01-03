@@ -8,15 +8,16 @@ import java.util.List;
 
 public class GradeService {
     private static List<Grade> gradeList=new ArrayList<>();
-    public void gradeAdd(String courseId,String studentId,double courseGrade){
+    public List<Grade> gradeAdd(String courseId, String studentId, double courseGrade){
         for (Grade g:gradeList){
             if(g.getCourseId().equals(courseId) && g.getStudentId().equals(studentId)){
                 System.out.println("学生[" + studentId + "]的课程[" + courseId + "]成绩已存在！");
-                return;
+                return null;
             }
         }
         gradeList.add(new Grade(courseId,studentId,courseGrade));
         System.out.println("成绩录入成功！");
+        return null;
     }
     public List<Grade> gradeQueryByStudentId(String studentId) {
         List<Grade> result = new ArrayList<>();
