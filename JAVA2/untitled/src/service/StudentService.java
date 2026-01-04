@@ -81,12 +81,4 @@ public class StudentService{
         }
         return result;
     }
-    
-    public static void initTestData() {
-        // 添加一些测试数据
-        studentsList.add(new Student("S001", "张三", "男", "北京", "计算机科学", "计算机学院", LocalDate.of(2020, 9, 1)));
-        studentsList.add(new Student("S002", "李四", "女", "上海", "软件工程", "计算机学院", LocalDate.of(2020, 9, 1)));
-        studentsList.add(new Student("S003", "王五", "男", "广州", "数学", "理学院", LocalDate.of(2020, 9, 1)));
-        System.out.println("已初始化测试数据");
-    }
 }
