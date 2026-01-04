@@ -22,7 +22,7 @@ public class ShowStudentMenu {
             System.out.println("7、查询所有学生信息");
             System.out.println("n、返回主菜单");
             System.out.print("请选择操作：");
-            String choice = scanner.next();
+            String choice = scanner.nextLine();
 
             if ("n".equalsIgnoreCase(choice)) {
                 break;
@@ -30,48 +30,48 @@ public class ShowStudentMenu {
             switch (choice) {
                 case "1":
                     System.out.print("请输入学号：");
-                    String stuId=scanner.next();
+                    String stuId=scanner.nextLine();
                     System.out.print("请输入姓名：");
-                    String stuName = scanner.next();
+                    String stuName = scanner.nextLine();
                     System.out.print("请输入性别：");
-                    String stuSex = scanner.next();
+                    String stuSex = scanner.nextLine();
                     System.out.print("请输入生源地：");
-                    String stuSource = scanner.next();
+                    String stuSource = scanner.nextLine();
                     System.out.print("请输入专业：");
-                    String stuMajor = scanner.next();
+                    String stuMajor = scanner.nextLine();
                     System.out.print("请输入学院：");
-                    String stuAcademy = scanner.next();
+                    String stuAcademy = scanner.nextLine();
                     System.out.print("请输入入学日期(yyyy-MM-dd)：");
-                    LocalDate enrollDate = LocalDate.parse(scanner.next(), df);
+                    LocalDate enrollDate = LocalDate.parse(scanner.nextLine(), df);
                     studentService.addStudent(stuId, stuName, stuSex, stuSource, stuMajor, stuAcademy, enrollDate);
                     break;
                 case "2":
                     System.out.print("请输入学号：");
-                    Student stu = studentService.studentQueryById(scanner.next());
+                    Student stu = studentService.studentQueryById(scanner.nextLine());
                     System.out.println(stu == null ? "未找到该学生" : stu);
                     break;
                 case "3":
                     System.out.print("请输入姓名：");
-                    List<Student> nameList = studentService.studentQueryByName(scanner.next());
+                    List<Student> nameList = studentService.studentQueryByName(scanner.nextLine());
                     nameList.forEach(System.out::println);
                     break;
                 case "4":
                     System.out.print("请输入专业：");
-                    List<Student> majorList = studentService.studentQueryByMajor(scanner.next());
+                    List<Student> majorList = studentService.studentQueryByMajor(scanner.nextLine());
                     majorList.forEach(System.out::println);
                     break;
                 case "5":
                     System.out.print("请输入学号：");
-                    String updateId = scanner.next();
+                    String updateId = scanner.nextLine();
                     System.out.print("请输入新姓名：");
-                    String newName = scanner.next();
+                    String newName = scanner.nextLine();
                     System.out.print("请输入新专业：");
-                    String newMajor = scanner.next();
+                    String newMajor = scanner.nextLine();
                     studentService.studentUpdateById(updateId, newName, newMajor);
                     break;
                 case "6":
                     System.out.print("请输入学号：");
-                    studentService.studentDeleteById(scanner.next());
+                    studentService.studentDeleteById(scanner.nextLine());
                     break;
                 case "7":
                     studentService.studentQueryAll().forEach(System.out::println);

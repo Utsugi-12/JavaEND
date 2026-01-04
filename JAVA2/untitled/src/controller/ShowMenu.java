@@ -1,3 +1,4 @@
+<<<<<<<< Updated upstream:JAVA2/untitled/src/controller/ShowMenu.java
 package controller;
 
 import java.util.Scanner;
@@ -126,3 +127,5 @@ public class ShowMenu {
         showMenu.run();
     }
 }
+========
+>>>>>>>> Stashed changes:JAVA2/untitled/src/controller/ShowMeun.java
