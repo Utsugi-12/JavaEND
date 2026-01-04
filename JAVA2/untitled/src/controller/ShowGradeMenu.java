@@ -5,10 +5,12 @@ import java.util.List;
 import java.util.Scanner;
 import domain.Grade;
 import service.GradeService;
+import service.CourseService;
 
 public class ShowGradeMenu {
     private static GradeService gradeService = new GradeService();
     private static Scanner scanner = new Scanner(System.in);
+
     public static void showGradeMenu() {
         while (true) {
             System.out.println("---------成绩管理--------");
@@ -60,22 +62,18 @@ public class ShowGradeMenu {
 
     private static void gradeInput() {
         System.out.println("=== 成绩录入 ===");
-        Grade grade = new Grade();
 
         System.out.print("请输入课程号：");
-        grade.setCourseId(scanner.next().trim());
+        String courseId = scanner.next().trim();
 
         System.out.print("请输入学生学号：");
-        grade.setStudentId(scanner.next().trim());
+        String studentId = scanner.next().trim();
 
         System.out.print("请输入课程成绩：");
-        grade.setCourseGrade(scanner.nextDouble());
+        double courseGrade = scanner.nextDouble();
 
-        List<Grade> gradeList = new ArrayList<>();
-        gradeList.add(grade);
-
-        List<Grade> result = gradeService.gradeAdd(gradeList);
-        System.out.println(result != null && !result.isEmpty() ? "成绩录入成功！" : "成绩录入失败！");
+        gradeService.gradeAdd(courseId, studentId, courseGrade);
+        System.out.println("成绩录入请求已提交！");
     }
 
     private static void queryGradeByStudentId() {
@@ -92,7 +90,8 @@ public class ShowGradeMenu {
         System.out.print("请输入老师工号：");
         String teacherId = scanner.next().trim();
 
-        List<Grade> grades = gradeService.gradeQueryByTeacherId(teacherId);
+        CourseService courseService = new CourseService();
+        List<Grade> grades = gradeService.gradeQueryByTeacherId(teacherId, courseService);
         printGradeList(grades);
     }
 
@@ -110,7 +109,13 @@ public class ShowGradeMenu {
         System.out.print("请输入学生学号：");
         String studentId = scanner.next().trim();
 
-        List<Grade> updatedGrades = gradeService.gradeUpdateByStudentId(studentId);
+        System.out.print("请输入要更新成绩的课程号：");
+        String courseId = scanner.next().trim();
+
+        System.out.print("请输入该课程的新成绩：");
+        double newCourseGrade = scanner.nextDouble();
+gradeService.gradeUpdateByStudentId(courseId,studentId,newCourseGrade);
+        List<Grade> updatedGrades = gradeService.gradeQueryByStudentId(courseId);
         System.out.println(updatedGrades != null && !updatedGrades.isEmpty() ? "成绩更新成功！" : "成绩更新失败！");
         if (updatedGrades != null) {
             printGradeList(updatedGrades);
@@ -122,7 +127,7 @@ public class ShowGradeMenu {
         System.out.print("请输入学生学号：");
         String studentId = scanner.next().trim();
 
-        List<Grade> sortedGrades = gradeService.gradeSortByStudentId(studentId);
+        List<Grade> sortedGrades = gradeService.gradeQueryByStudentId(studentId);
         System.out.println("排名结果：");
         printGradeList(sortedGrades);
     }
