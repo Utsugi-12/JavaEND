@@ -2,6 +2,7 @@ package controller;
 
 import domain.Student;
 import service.StudentService;
+import controller.ShowMenu;
 
 import java.time.LocalDate;
 import java.util.List;
@@ -53,6 +54,7 @@ public class ShowStudentMenu {
                         break;
                     case 8:
                         System.out.println("返回主菜单...");
+                        ShowMenu.showMainMenu();
                         return;
                     default:
                         System.out.println("输入错误，请输入1-8之间的数字！");

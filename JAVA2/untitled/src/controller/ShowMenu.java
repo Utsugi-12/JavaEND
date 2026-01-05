@@ -6,8 +6,8 @@ public class ShowMenu {
     private static Scanner scanner = new Scanner(System.in);
     
     // 预设的账号密码用于测试
-    private static final String USERNAME = "admin";
-    private static final String PASSWORD = "123456";
+    private static final String USERNAME = "刘小胖";
+    private static final String PASSWORD = "lk_gfh";
 
     public static void main(String[] args) {
         if (login()) {
